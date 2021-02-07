@@ -4,11 +4,11 @@ print("""
 Inserisci il File da criptare nella stessa cartella di questo programma!!!""")
 
 def secure_pdf(file,password):
-    if not os.path.isfile(file): #se non è un file esco
+    if not os.path.isfile(file):
         print("Il file inserito non esiste o non è un file!")
         return None
-    if file.endswith(".pdf") or file.endswith(".PDF"): #se è un file pdf procedo
-        if not os.path.isdir(r".\File Criptati"): #Creo la cartella File Criptati se non esiste
+    if file.endswith(".pdf") or file.endswith(".PDF"):
+        if not os.path.isdir(r".\File Criptati"):
             os.mkdir(r".\File Criptati")
         file_protetto = PdfFileWriter()
         file_da_proteggere = PdfFileReader(file)
@@ -20,7 +20,7 @@ def secure_pdf(file,password):
             file_protetto.write(f)
             f.close()
         print(f"Creata versione criptata di {file}")
-    else:                               #se non è un file pdf esco
+    else:
         print("Il file inserito non è un PDF!")
         return None
 
